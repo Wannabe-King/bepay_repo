@@ -19,17 +19,17 @@ class MobileLoyaltyCards extends StatelessWidget {
               children: [
                 _buildLoyaltyCard(
                   "Loyalty program coming soon for the merchants",
-                  "https://via.placeholder.com/150/6c5ce7",
+                  "assets/loyality_1.png",
                   Colors.indigo,
                 ),
                 _buildLoyaltyCard(
                   "Loyalty program coming soon for the merchants",
-                  "https://via.placeholder.com/150/00b894",
+                  "assets/loyality_2.png",
                   Colors.teal,
                 ),
                 _buildLoyaltyCard(
                   "Loyalty program coming soon for the merchants",
-                  "https://via.placeholder.com/150/d63031",
+                  "assets/loyality_3.png",
                   Colors.deepOrange,
                 ),
               ],
@@ -61,10 +61,7 @@ class MobileLoyaltyCards extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        image: DecorationImage(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
+        image: DecorationImage(image: AssetImage(imageUrl), fit: BoxFit.cover),
       ),
       child: Container(
         decoration: BoxDecoration(

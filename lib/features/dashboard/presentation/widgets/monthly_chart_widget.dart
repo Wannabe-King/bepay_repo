@@ -10,17 +10,63 @@ class MonthlyChartWidget extends StatelessWidget {
     // In a real app, you would use a charting library like fl_chart
     return Container(
       height: 200,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Stack(
         children: [
-          _buildChartBar("Jan", 0.3, true),
-          _buildChartBar("Feb", 0.5, false),
-          _buildChartBar("Mar", 0.7, false),
-          _buildChartBar("Apr", 0.4, false),
-          _buildChartBar("May", 0.6, false),
-          _buildChartBar("Jun", 0.8, false),
-          _buildChartBar("Jul", 0.9, false),
+          // Chart bars
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 30,
+            ), // Add padding for the tooltip
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildChartBar("Jan", 0.3, false),
+                _buildChartBar("Feb", 0.6, false),
+                _buildChartBar("Mar", 0.45, false),
+                _buildChartBar("Apr", 0.7, false),
+                _buildChartBar("May", 0.9, true),
+                _buildChartBar("Jun", 0.5, false),
+                _buildChartBar("Jul", 0.65, false),
+              ],
+            ),
+          ),
+
+          // Value indicator for selected bar
+          Positioned(
+            right: 100, // Adjusted for better position
+            top: 0,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              decoration: BoxDecoration(
+                color: AppColors.cardBackground,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 5,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+                border: Border.all(
+                  color: AppColors.primary.withOpacity(0.3),
+                  width: 1,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "\$653.09",
+                    style: TextStyles.subtitle2.copyWith(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -32,22 +78,27 @@ class MonthlyChartWidget extends StatelessWidget {
       children: [
         Container(
           width: 30,
-          height: 160 * height,
+          height: 140 * height, // Adjusted height
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: isSelected
-                  ? [AppColors.primary, AppColors.primary.withOpacity(0.7)]
+                  ? [
+                      AppColors.primary,
+                      AppColors.primary.withOpacity(0.7),
+                      AppColors.primary.withOpacity(0.5),
+                    ]
                   : [
                       AppColors.secondary.withOpacity(0.7),
-                      AppColors.secondary.withOpacity(0.3),
+                      AppColors.secondary.withOpacity(0.4),
+                      AppColors.secondary.withOpacity(0.2),
                     ],
             ),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 10),
         Text(
           month,
           style: TextStyles.caption.copyWith(

@@ -31,27 +31,27 @@ class LoyaltyCardWidget extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: imageUrl.startsWith('http') 
-                ? Image.network(
-                    imageUrl, 
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: color.withOpacity(0.3),
-                        child: Icon(Icons.image_not_supported, color: color),
-                      );
-                    },
-                  )
-                : Image.asset(
-                    imageUrl, 
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: color.withOpacity(0.3),
-                        child: Icon(Icons.image_not_supported, color: color),
-                      );
-                    },
-                  ),
+              child: imageUrl.startsWith('http')
+                  ? Image.network(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: color.withOpacity(0.3),
+                          child: Icon(Icons.image_not_supported, color: color),
+                        );
+                      },
+                    )
+                  : Image.asset(
+                      imageUrl,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: color.withOpacity(0.3),
+                          child: Icon(Icons.image_not_supported, color: color),
+                        );
+                      },
+                    ),
             ),
           ),
           const SizedBox(width: Spacing.md),

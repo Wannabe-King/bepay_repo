@@ -22,32 +22,36 @@ class InfoCardWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(Spacing.md),
       decoration: Decorations.card,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Text(title, style: TextStyles.heading3),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: color.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(icon, color: color, size: 24),
-              ),
-            ],
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            subtitle,
-            style: TextStyles.body2.copyWith(color: AppColors.textSecondary),
-          ),
-          const SizedBox(height: Spacing.md),
-          Text(amount, style: TextStyles.heading1),
-        ],
-      ),
+      child: Text("fe"),
+      // Column(
+      //   crossAxisAlignment: CrossAxisAlignment.start,
+      //   children: [
+      //     // Top icon
+      //     Container(
+      //       padding: const EdgeInsets.all(8),
+      //       decoration: BoxDecoration(
+      //         color: AppColors.secondary,
+      //         borderRadius: BorderRadius.circular(8),
+      //       ),
+      //       child: Icon(icon, color: color, size: 24),
+      //     ),
+      //     const SizedBox(height: Spacing.sm),
+
+      //     // Title
+      //     Text(title, style: TextStyles.heading3),
+      //     const SizedBox(height: Spacing.sm),
+
+      //     // Subtitle
+      //     Text(
+      //       subtitle,
+      //       style: TextStyles.body2.copyWith(color: AppColors.textSecondary),
+      //     ),
+      //     const SizedBox(height: Spacing.md),
+
+      //     // Amount
+      //     Text(amount, style: TextStyles.heading2),
+      //   ],
+      // ),
     );
   }
 }

@@ -27,7 +27,7 @@ class DashboardContent extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(
@@ -44,7 +44,7 @@ class DashboardContent extends StatelessWidget {
                           title: "Payouts",
                           subtitle: "Current Payouts",
                           amount: "\$ 3,877.10",
-                          icon: Icons.attach_money,
+                          img: 'assets/payout_icon.png',
                           color: Colors.amber,
                         ),
                       ),
@@ -55,7 +55,7 @@ class DashboardContent extends StatelessWidget {
                           title: "Turnover",
                           subtitle: "Current Payouts",
                           amount: "\$ 3,877.10",
-                          icon: Icons.sync_alt,
+                          img: 'assets/turnover_icon.png',
                           color: Colors.blue,
                         ),
                       ),

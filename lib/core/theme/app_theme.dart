@@ -2,16 +2,28 @@ import 'package:flutter/material.dart';
 
 /// App colors used throughout the application
 class AppColors {
-  static const primary = Colors.deepPurple;
-  static const secondary = Colors.blueAccent;
-  static const background = Color(0xFF121212);
-  static const cardBackground = Color(0xFF1E1E1E);
+  static const primary = Colors.white;
+  static const secondary = Color(0xFFF0F0F0);
+  static const background = Color(
+    0xFF0A0A0A,
+  ); // Darker background like in reference
+  static const backgroundSecondary = Color(
+    0xFF121212,
+  ); // Secondary background color
+  static const cardBackground = Color(
+    0xFF1A1A1A,
+  ); // Slightly lighter than background
+  static const cardBackgroundSecondary = Color(
+    0xFF242424,
+  ); // Secondary card background
   static const textPrimary = Colors.white;
-  static const textSecondary = Colors.grey;
-  static const success = Colors.green;
-  static const warning = Colors.amber;
-  static const info = Colors.blue;
-  static const error = Colors.red;
+  static const textSecondary = Color(
+    0xFFB3B3B3,
+  ); // Lighter gray for better contrast
+  static const success = Color(0xFF4CAF50); // Green
+  static const warning = Color(0xFFFFC107); // Amber
+  static const info = Color(0xFF2196F3); // Blue
+  static const error = Color(0xFFF44336); // Red
   static const divider = Color(0xFF2A2A2A);
 }
 
@@ -87,8 +99,15 @@ class TextStyles {
 /// Decoration styles for cards and containers
 class Decorations {
   static BoxDecoration get card => BoxDecoration(
-    color: AppColors.cardBackground,
+    color: Colors.amber,
     borderRadius: BorderRadius.circular(16.0),
+    border: Border.all(color: Color(0xFF333333), width: 1.0),
+  );
+
+  static BoxDecoration get innerCard => BoxDecoration(
+    color: AppColors.cardBackgroundSecondary,
+    borderRadius: BorderRadius.circular(12.0),
+    border: Border.all(color: Color(0xFF333333), width: 1.0),
   );
 
   static BoxDecoration get roundedButton => BoxDecoration(

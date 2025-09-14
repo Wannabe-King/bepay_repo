@@ -1,10 +1,11 @@
+import 'package:bepay/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class InfoCardWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String amount;
-  final IconData icon;
+  final String img;
   final Color color;
 
   const InfoCardWidget({
@@ -12,7 +13,7 @@ class InfoCardWidget extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.amount,
-    required this.icon,
+    required this.img,
     required this.color,
   }) : super(key: key);
 
@@ -21,42 +22,38 @@ class InfoCardWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey[900],
+        color: AppColors.secondary,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: color.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(icon, color: color, size: 20),
-              ),
-              const Spacer(),
-              Text(
-                title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: AppColors.background,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Image.asset(img),
           ),
           const SizedBox(height: 16),
           Text(
+            title,
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+
+          Text(
             subtitle,
-            style: TextStyle(color: Colors.grey[400], fontSize: 12),
+            style: TextStyle(color: Colors.grey[600], fontSize: 12),
           ),
           const SizedBox(height: 4),
           Text(
             amount,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),

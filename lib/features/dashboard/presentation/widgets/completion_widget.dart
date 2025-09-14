@@ -17,6 +17,7 @@ class CompletionWidget extends StatelessWidget {
                 "Completed",
                 style: TextStyles.caption.copyWith(
                   color: AppColors.textSecondary,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const Spacer(),
@@ -36,8 +37,9 @@ class CompletionWidget extends StatelessWidget {
               height: 6,
               child: LinearProgressIndicator(
                 value: 0.65,
-                backgroundColor: AppColors.divider,
+                backgroundColor: AppColors.divider.withOpacity(0.5),
                 valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+                borderRadius: BorderRadius.circular(4),
               ),
             ),
           ),
