@@ -71,7 +71,7 @@ class PaymentsWidget extends StatelessWidget {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: AppColors.secondary),
+        border: Border.all(color: Colors.black),
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(

@@ -8,6 +8,7 @@ import 'monthly_chart_widget.dart';
 import 'completion_widget.dart';
 import 'loyalty_card_widget.dart';
 import 'payments_widget.dart';
+import 'monthly_tokens_widget.dart';
 
 class DashboardContent extends StatelessWidget {
   const DashboardContent({super.key});
@@ -90,7 +91,7 @@ class DashboardContent extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 24),
-                            
+
                             // Loyalty cards section
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +117,7 @@ class DashboardContent extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 32),
-                            
+
                             // Payments/Transactions section
                             const PaymentsWidget(),
                           ],
@@ -179,7 +180,8 @@ class DashboardContent extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            //Total monthly token section here
+                            // Total monthly token section
+                            const MonthlyTokensWidget(),
                           ],
                         ),
                       ),

@@ -27,7 +27,7 @@ class BepayCardWidget extends StatelessWidget {
               children: [
                 Spacer(),
                 SvgPicture.asset(
-                  'assets/BepayLogo_simple.svg',
+                  'assets/BepayLogo.svg',
                   height: 30,
                   colorFilter: const ColorFilter.mode(
                     Colors.white,
