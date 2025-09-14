@@ -1,3 +1,4 @@
+import 'package:bepay/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class MobileActionButtons extends StatelessWidget {
@@ -8,30 +9,35 @@ class MobileActionButtons extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _buildActionButton("Send", Icons.send_outlined),
-          _buildActionButton("Receive", Icons.call_received_outlined),
-          _buildActionButton("Pay Link", Icons.link_outlined),
-          _buildActionButton("Cash Out", Icons.account_balance_wallet_outlined),
+          _buildActionButton("Send", 'assets/send_icon.png'),
+          _buildActionButton("Receive", 'assets/recive_icon.png'),
+          _buildActionButton("Pay Link", 'assets/pay_link_icon.png'),
+          _buildActionButton("Cash Out", 'assets/swap_icon.png'),
         ],
       ),
     );
   }
 
-  Widget _buildActionButton(String label, IconData icon) {
+  Widget _buildActionButton(String label, String img) {
     return Column(
       children: [
         Container(
+          margin: EdgeInsets.symmetric(horizontal: 8),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.grey[800],
+            gradient: LinearGradient(
+              colors: [AppColors.secondary, AppColors.primary],
+              begin: AlignmentGeometry.topCenter,
+              end: AlignmentGeometry.bottomCenter,
+            ),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: Icon(icon, color: Colors.white, size: 20),
+          child: Image.asset(img),
         ),
         const SizedBox(height: 8),
-        Text(label, style: TextStyle(color: Colors.grey[400], fontSize: 12)),
+        Text(label, style: TextStyle(color: Colors.black, fontSize: 12)),
       ],
     );
   }

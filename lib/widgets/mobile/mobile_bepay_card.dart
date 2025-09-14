@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class MobileBepayCard extends StatelessWidget {
   const MobileBepayCard({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class MobileBepayCard extends StatelessWidget {
       child: Stack(
         children: [
           // Logo and card details
+          Positioned(left: 16, top: 16, child: Image.asset('assets/sim.png')),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -24,24 +26,13 @@ class MobileBepayCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        color: Colors.white24,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: const Icon(
-                        Icons.grid_view_rounded,
-                        color: Colors.white,
-                        size: 16,
-                      ),
-                    ),
-                    const SizedBox(width: 8),
+                    SvgPicture.asset('assets/BepayLogo.svg'),
+                    const SizedBox(width: 16),
                     const Text(
                       "bepay",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

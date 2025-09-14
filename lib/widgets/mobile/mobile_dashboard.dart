@@ -12,12 +12,12 @@ class MobileDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.white),
+          icon: const Icon(Icons.menu, color: Colors.black),
           onPressed: () {},
         ),
         actions: [
@@ -26,7 +26,7 @@ class MobileDashboard extends StatelessWidget {
             children: [
               const Text(
                 "Sandbox",
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: TextStyle(color: Colors.black, fontSize: 12),
               ),
               Transform.scale(
                 scale: 0.8,
@@ -39,7 +39,7 @@ class MobileDashboard extends StatelessWidget {
             ],
           ),
           IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.white),
+            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
             onPressed: () {},
           ),
         ],

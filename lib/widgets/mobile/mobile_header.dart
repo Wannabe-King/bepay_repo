@@ -1,64 +1,72 @@
+import 'package:bepay/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class MobileHeader extends StatelessWidget {
-  const MobileHeader({Key? key}) : super(key: key);
+  const MobileHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 "Arshi's Wallets balance",
                 style: TextStyle(fontSize: 14, color: Colors.grey),
               ),
               const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                  color: Colors.grey[800],
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: const Icon(
-                  Icons.visibility_outlined,
-                  size: 16,
-                  color: Colors.white,
-                ),
+              const Icon(
+                Icons.account_balance_wallet,
+                size: 16,
+                color: Colors.black,
               ),
+              const Icon(Icons.visibility, size: 16, color: Colors.black),
             ],
           ),
           const SizedBox(height: 8),
           const Text(
             "\$ 6,53,877.09",
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
-          Row(
-            children: [
-              const Text(
-                "Today",
-                style: TextStyle(fontSize: 14, color: Colors.grey),
-              ),
-              const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                decoration: BoxDecoration(
-                  color: Colors.green.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(4),
+          const SizedBox(height: 8),
+          Container(
+            width: 120,
+            padding: EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: AppColors.secondary,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Today",
+                  style: TextStyle(fontSize: 12, color: Colors.grey),
                 ),
-                child: const Text(
+                const SizedBox(width: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  width: 5,
+                  height: 5,
+                ),
+                const SizedBox(width: 8),
+                const Text(
                   "+\$2.56",
-                  style: TextStyle(fontSize: 12, color: Colors.green),
+                  style: TextStyle(fontSize: 12, color: Colors.black),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
