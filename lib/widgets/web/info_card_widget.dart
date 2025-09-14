@@ -6,16 +6,14 @@ class InfoCardWidget extends StatelessWidget {
   final String subtitle;
   final String amount;
   final String img;
-  final Color color;
 
   const InfoCardWidget({
-    Key? key,
+    super.key,
     required this.title,
     required this.subtitle,
     required this.amount,
     required this.img,
-    required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class InfoCardWidget extends StatelessWidget {
               color: AppColors.background,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Image.asset(img),
+            child: Image.asset(img, width: 30, height: 30),
           ),
           const SizedBox(height: 16),
           Text(

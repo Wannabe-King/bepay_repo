@@ -7,7 +7,7 @@ class BepayCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 160,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.grey[900],

@@ -1,3 +1,4 @@
+import 'package:bepay/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'dashboard_header.dart';
 import 'info_card_widget.dart';
@@ -13,7 +14,7 @@ class DashboardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFF121212),
+      color: Colors.black,
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -31,37 +32,105 @@ class DashboardContent extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Top cards - Payouts & Turnover
-                  const Row(
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(flex: 3, child: BepayCardWidget()),
-                      SizedBox(width: 16),
                       Expanded(
-                        flex: 2,
-                        child: InfoCardWidget(
-                          title: "Payouts",
-                          subtitle: "Current Payouts",
-                          amount: "\$ 3,877.10",
-                          img: 'assets/payout_icon.png',
-                          color: Colors.amber,
+                        flex: 4,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const Row(
+                              children: [
+                                Expanded(flex: 3, child: BepayCardWidget()),
+                                SizedBox(width: 16),
+                                Expanded(
+                                  flex: 2,
+                                  child: InfoCardWidget(
+                                    title: "Payouts",
+                                    subtitle: "Current Payouts",
+                                    amount: "\$ 3,877.10",
+                                    img: 'assets/payout_icon.png',
+                                  ),
+                                ),
+                                SizedBox(width: 16),
+                                Expanded(
+                                  flex: 2,
+                                  child: InfoCardWidget(
+                                    title: "Turnover",
+                                    subtitle: "Current Payouts",
+                                    amount: "\$ 3,877.10",
+                                    img: 'assets/turnover_icon.png',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(width: 16),
                       Expanded(
-                        flex: 2,
-                        child: InfoCardWidget(
-                          title: "Turnover",
-                          subtitle: "Current Payouts",
-                          amount: "\$ 3,877.10",
-                          img: 'assets/turnover_icon.png',
-                          color: Colors.blue,
+                        flex: 3,
+                        child: Column(
+                          children: [
+                            // Monthly Chart Column
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 54,
+                                horizontal: 16,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.secondary,
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: const Column(
+                                // crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Total Monthly Turnover",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        "\$ 2,73,937",
+                                        style: TextStyle(
+                                          fontSize: 32,
+                                          fontWeight: FontWeight.w900,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      SizedBox(width: 8),
+                                      Text(
+                                        "+\$2,937",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.green,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  SizedBox(height: 30),
+                                  MonthlyChartWidget(),
+                                  SizedBox(height: 30),
+                                  CompletionWidget(),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
 
                   // Account Info Section
                   const Text(
@@ -81,56 +150,6 @@ class DashboardContent extends StatelessWidget {
                       // Account Balance Column
                       const Expanded(flex: 4, child: AccountBalanceWidget()),
                       const SizedBox(width: 16),
-
-                      // Monthly Chart Column
-                      Expanded(
-                        flex: 6,
-                        child: Container(
-                          padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            color: Colors.grey[900],
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Total Monthly Turnover",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Spacer(),
-                                  Text(
-                                    "\$ 2,73,937",
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "+\$2,937",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.green,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 16),
-                              MonthlyChartWidget(),
-                              SizedBox(height: 16),
-                              CompletionWidget(),
-                            ],
-                          ),
-                        ),
-                      ),
                     ],
                   ),
 

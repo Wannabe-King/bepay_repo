@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CompletionWidget extends StatelessWidget {
-  const CompletionWidget({Key? key}) : super(key: key);
+  const CompletionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
