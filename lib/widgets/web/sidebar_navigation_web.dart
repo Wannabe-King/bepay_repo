@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SidebarNavigationWeb extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onItemSelected;
 
   const SidebarNavigationWeb({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onItemSelected,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class SidebarNavigationWeb extends StatelessWidget {
           // Logo
           Container(
             padding: const EdgeInsets.all(16),
-            child: const Icon(Icons.dashboard, color: Colors.white, size: 32),
+            child: SvgPicture.asset('assets/BepayLogo.svg'),
           ),
           const SizedBox(height: 40),
           // Navigation Items

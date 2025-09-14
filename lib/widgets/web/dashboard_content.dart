@@ -9,7 +9,7 @@ import 'completion_widget.dart';
 import 'loyalty_card_widget.dart';
 
 class DashboardContent extends StatelessWidget {
-  const DashboardContent({Key? key}) : super(key: key);
+  const DashboardContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,6 @@ class DashboardContent extends StatelessWidget {
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Header with search and actions
             const DashboardHeader(),
@@ -32,6 +31,7 @@ class DashboardContent extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,6 +40,7 @@ class DashboardContent extends StatelessWidget {
                         flex: 4,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Row(
                               children: [
@@ -63,6 +64,52 @@ class DashboardContent extends StatelessWidget {
                                     amount: "\$ 3,877.10",
                                     img: 'assets/turnover_icon.png',
                                   ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 16),
+                            // Account Info Section
+                            const Text(
+                              "My Account Info",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            Row(
+                              children: [
+                                // Account Balance Column
+                                const Expanded(
+                                  flex: 4,
+                                  child: AccountBalanceWidget(),
+                                ),
+                                const SizedBox(width: 16),
+                              ],
+                            ),
+                            SizedBox(height: 40),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                LoyaltyCardWidget(
+                                  imageUrl: "assets/loyality_1.png",
+                                  color: Colors.indigo,
+                                  title: "Loyalty program coming soon",
+                                  subtitle: "for the merchants",
+                                ),
+                                LoyaltyCardWidget(
+                                  imageUrl: "assets/loyality_2.png",
+                                  color: Colors.indigo,
+                                  title: "Loyalty program coming soon",
+                                  subtitle: "for the merchants",
+                                ),
+                                LoyaltyCardWidget(
+                                  imageUrl: "assets/loyality_3.png",
+                                  color: Colors.indigo,
+                                  title: "Loyalty program coming soon",
+                                  subtitle: "for the merchants",
                                 ),
                               ],
                             ),
@@ -132,71 +179,7 @@ class DashboardContent extends StatelessWidget {
                     ],
                   ),
 
-                  // Account Info Section
-                  const Text(
-                    "My Account Info",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
                   const SizedBox(height: 16),
-
-                  // Balance and Chart Row
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Account Balance Column
-                      const Expanded(flex: 4, child: AccountBalanceWidget()),
-                      const SizedBox(width: 16),
-                    ],
-                  ),
-
-                  const SizedBox(height: 24),
-
-                  // Loyalty Programs
-                  const Text(
-                    "Loyalty Programs",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Loyalty Cards Grid
-                  const Row(
-                    children: [
-                      Expanded(
-                        child: LoyaltyCardWidget(
-                          imageUrl: "https://via.placeholder.com/150/6c5ce7",
-                          color: Colors.indigo,
-                          title: "Loyalty program coming soon",
-                          subtitle: "for the merchants",
-                        ),
-                      ),
-                      SizedBox(width: 16),
-                      Expanded(
-                        child: LoyaltyCardWidget(
-                          imageUrl: "https://via.placeholder.com/150/00b894",
-                          color: Colors.teal,
-                          title: "Loyalty program coming soon",
-                          subtitle: "for the merchants",
-                        ),
-                      ),
-                      SizedBox(width: 16),
-                      Expanded(
-                        child: LoyaltyCardWidget(
-                          imageUrl: "https://via.placeholder.com/150/d63031",
-                          color: Colors.deepOrange,
-                          title: "Loyalty program coming soon",
-                          subtitle: "for the merchants",
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ),
