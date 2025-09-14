@@ -5,6 +5,7 @@ class TransactionItem {
   final String abbreviation;
   final String amount;
   final String value;
+  final String profit;
   final String percentChange;
   final String img;
   final bool isPositiveChange;
@@ -14,6 +15,7 @@ class TransactionItem {
     required this.abbreviation,
     required this.amount,
     required this.value,
+    required this.profit,
     required this.percentChange,
     required this.img,
     this.isPositiveChange = true,
@@ -27,7 +29,8 @@ class RecentTransactionsWidget extends StatelessWidget {
       abbreviation: 'BTC',
       amount: '0',
       value: '\$43,870',
-      percentChange: '+0.06%',
+      profit: '+1.09%',
+      percentChange: '+0.06',
       img: 'assets/btc.png',
       isPositiveChange: true,
     ),
@@ -36,15 +39,17 @@ class RecentTransactionsWidget extends StatelessWidget {
       abbreviation: 'TRON',
       amount: '0.25',
       value: '\$28.62',
+      profit: '+1.09%',
       percentChange: '+0.08%',
       img: 'assets/tron.png',
       isPositiveChange: true,
     ),
     TransactionItem(
       name: 'Tether USD',
-      abbreviation: 'USDT (ERC-20)',
+      abbreviation: 'USDT',
       amount: '0',
       value: '\$1.0094',
+      profit: '+1.09%',
       percentChange: '+0.03%',
       img: 'assets/usdt.png',
       isPositiveChange: true,
@@ -54,6 +59,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       abbreviation: 'ETH',
       amount: '0',
       value: '\$2,567',
+      profit: '-3.09%',
       percentChange: '-0.08%',
       img: 'assets/eth.png',
       isPositiveChange: false,
@@ -63,6 +69,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       abbreviation: 'TON',
       amount: '0.25',
       value: '\$7.86',
+      profit: '+1.09%',
       percentChange: '+0.01%',
       img: 'assets/ton.png',
       isPositiveChange: true,
@@ -72,6 +79,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       abbreviation: 'XRP',
       amount: '0.25',
       value: '\$0.53',
+      profit: '+1.09%',
       percentChange: '+0.09%',
       img: 'assets/xrp.png',
       isPositiveChange: true,
@@ -136,8 +144,6 @@ class RecentTransactionsWidget extends StatelessWidget {
                   children: [
                     // Crypto icon
                     Container(
-                      width: 36,
-                      height: 36,
                       decoration: BoxDecoration(shape: BoxShape.circle),
                       child: Image.asset(transaction.img),
                     ),
@@ -151,18 +157,34 @@ class RecentTransactionsWidget extends StatelessWidget {
                           Text(
                             transaction.abbreviation,
                             style: const TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                              color: Colors.black,
                             ),
                           ),
                           const SizedBox(height: 4),
-                          Text(
-                            transaction.value,
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[400],
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                transaction.value,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey[400],
+                                ),
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                transaction.profit,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: transaction.percentChange == '0'
+                                      ? Colors.grey
+                                      : transaction.isPositiveChange
+                                      ? Colors.green
+                                      : Colors.red,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -177,7 +199,7 @@ class RecentTransactionsWidget extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: Colors.black,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -185,7 +207,9 @@ class RecentTransactionsWidget extends StatelessWidget {
                           transaction.percentChange,
                           style: TextStyle(
                             fontSize: 14,
-                            color: transaction.isPositiveChange
+                            color: transaction.percentChange == '0'
+                                ? Colors.grey
+                                : transaction.isPositiveChange
                                 ? Colors.green
                                 : Colors.red,
                           ),
