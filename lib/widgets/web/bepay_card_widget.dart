@@ -2,60 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BepayCardWidget extends StatelessWidget {
-  const BepayCardWidget({Key? key}) : super(key: key);
+  const BepayCardWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 160,
-      padding: const EdgeInsets.all(16),
+
       decoration: BoxDecoration(
         color: Colors.grey[900],
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Stack(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [Image.asset('assets/sim.png', scale: 0.9)],
+          Positioned(
+            top: 16,
+            left: 16,
+            child: Image.asset('assets/sim.png', scale: 0.9),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/BepayLogo.svg',
-                height: 30,
-                colorFilter: const ColorFilter.mode(
-                  Colors.white,
-                  BlendMode.srcIn,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "bepay",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 24,
-                    ),
+          Center(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Spacer(),
+                SvgPicture.asset(
+                  'assets/BepayLogo_simple.svg',
+                  height: 30,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
                   ),
-                ],
-              ),
-            ],
+                ),
+                const SizedBox(width: 16),
+                const Text(
+                  "bepay",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 24,
+                  ),
+                ),
+                Spacer(),
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                "Premium Card",
-                style: TextStyle(color: Colors.grey[400], fontSize: 12),
-              ),
-            ],
+          Positioned(
+            right: 16,
+            bottom: 16,
+            child: Text(
+              "Premium Card",
+              style: TextStyle(color: Colors.grey[400], fontSize: 12),
+            ),
           ),
         ],
       ),

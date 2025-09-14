@@ -15,10 +15,16 @@ class MobileDashboard extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
+        leading: GestureDetector(
+          child: Container(
+            // padding: EdgeInsets.all(2),
+            margin: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.black,
+            ),
+            child: Image.asset('assets/menu.png', scale: 1.2),
+          ),
         ),
         actions: [
           // Sandbox toggle switch
@@ -30,17 +36,18 @@ class MobileDashboard extends StatelessWidget {
               ),
               Transform.scale(
                 scale: 0.8,
-                child: Switch(
-                  value: false,
-                  onChanged: (_) {},
-                  activeColor: Colors.white,
-                ),
+                child: Image.asset('assets/sandbox.png'),
               ),
             ],
           ),
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-            onPressed: () {},
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 8),
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.black,
+            ),
+            child: Image.asset('assets/notification.png'),
           ),
         ],
       ),

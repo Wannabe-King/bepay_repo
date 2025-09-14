@@ -24,6 +24,7 @@ class MobileHeader extends StatelessWidget {
                 size: 16,
                 color: Colors.black,
               ),
+              const SizedBox(width: 8),
               const Icon(Icons.visibility, size: 16, color: Colors.black),
             ],
           ),

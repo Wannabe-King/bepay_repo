@@ -16,22 +16,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BePay Dashboard',
       debugShowCheckedModeBanner: false,
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(
-      //     seedColor: Colors.deepPurple,
-      //     brightness: Brightness.light,
-      //   ),
-      //   fontFamily: 'Inter',
-      // ),
-      // darkTheme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(
-      //     seedColor: Colors.deepPurple,
-      //     brightness: Brightness.dark,
-      //   ),
-      //   scaffoldBackgroundColor: Colors.black,
-      //   fontFamily: 'Inter',
-      // ),
-      // themeMode: ThemeMode.dark,
       home: ResponsivePage(),
     );
   }

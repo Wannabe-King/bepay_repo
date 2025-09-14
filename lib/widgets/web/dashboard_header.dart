@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DashboardHeader extends StatelessWidget {
-  const DashboardHeader({Key? key}) : super(key: key);
+  const DashboardHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,20 +46,13 @@ class DashboardHeader extends StatelessWidget {
           children: [
             const Text("Sandbox", style: TextStyle(color: Colors.white)),
             const SizedBox(width: 8),
-            Switch(value: true, onChanged: (_) {}, activeColor: Colors.white),
+            Image.asset('assets/sandbox.png'),
           ],
         ),
         const SizedBox(width: 24),
 
         // Notification Icon
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.grey.shade800),
-          ),
-          child: const Icon(Icons.notifications_outlined, color: Colors.white),
-        ),
+        Image.asset('assets/notification.png'),
         const SizedBox(width: 16),
 
         // Withdraw Button
@@ -73,7 +66,7 @@ class DashboardHeader extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(5),
             ),
           ),
         ),
