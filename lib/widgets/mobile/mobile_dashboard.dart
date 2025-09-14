@@ -5,20 +5,32 @@ import 'mobile_bepay_card.dart';
 import 'recent_transactions_widget.dart';
 import 'mobile_loyalty_cards.dart';
 import 'mobile_chart.dart';
+import 'sliding_nav_bar.dart';
 
-class MobileDashboard extends StatelessWidget {
+class MobileDashboard extends StatefulWidget {
   const MobileDashboard({Key? key}) : super(key: key);
+
+  @override
+  State<MobileDashboard> createState() => _MobileDashboardState();
+}
+
+class _MobileDashboardState extends State<MobileDashboard> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
+      drawer: const SlidingNavBar(),
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: GestureDetector(
+          onTap: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
           child: Container(
-            // padding: EdgeInsets.all(2),
-            margin: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.black,
@@ -41,8 +53,8 @@ class MobileDashboard extends StatelessWidget {
             ],
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 8),
-            padding: EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.black,
