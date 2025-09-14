@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MobileLoyaltyCards extends StatelessWidget {
-  const MobileLoyaltyCards({Key? key}) : super(key: key);
+  const MobileLoyaltyCards({super.key});
 
   @override
   Widget build(BuildContext context) {

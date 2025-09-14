@@ -8,23 +8,23 @@ class MobileChart extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
             "Total Monthly Transactions",
             style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+              fontSize: 12,
+              // fontWeight: FontWeight.bold,
+              color: Colors.grey,
             ),
           ),
           const SizedBox(height: 8),
           const Text(
             "\$ 2,73,937",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 40,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           const SizedBox(height: 16),
@@ -61,7 +61,7 @@ class MobileChart extends StatelessWidget {
               Text(
                 "May",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                 ),
@@ -97,7 +97,7 @@ class LineChartPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint linePaint = Paint()
-      ..color = Colors.white
+      ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 
@@ -107,7 +107,7 @@ class LineChartPainter extends CustomPainter {
       ..strokeWidth = 2;
 
     final Paint dotPaint = Paint()
-      ..color = Colors.white
+      ..color = Colors.black
       ..style = PaintingStyle.fill;
 
     // Sample data points (x, y) normalized to the canvas size
@@ -149,7 +149,7 @@ class LineChartPainter extends CustomPainter {
     // Draw the value indicator above the highlighted point
     const TextSpan textSpan = TextSpan(
       text: '\$653.09',
-      style: TextStyle(color: Colors.white, fontSize: 12),
+      style: TextStyle(color: Colors.black, fontSize: 12),
     );
 
     final TextPainter textPainter = TextPainter(

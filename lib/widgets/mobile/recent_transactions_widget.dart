@@ -6,7 +6,7 @@ class TransactionItem {
   final String amount;
   final String value;
   final String percentChange;
-  final Color color;
+  final String img;
   final bool isPositiveChange;
 
   TransactionItem({
@@ -15,7 +15,7 @@ class TransactionItem {
     required this.amount,
     required this.value,
     required this.percentChange,
-    required this.color,
+    required this.img,
     this.isPositiveChange = true,
   });
 }
@@ -28,7 +28,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       amount: '0',
       value: '\$43,870',
       percentChange: '+0.06%',
-      color: Colors.orange,
+      img: 'assets/btc.png',
       isPositiveChange: true,
     ),
     TransactionItem(
@@ -37,7 +37,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       amount: '0.25',
       value: '\$28.62',
       percentChange: '+0.08%',
-      color: Colors.red,
+      img: 'assets/tron.png',
       isPositiveChange: true,
     ),
     TransactionItem(
@@ -46,7 +46,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       amount: '0',
       value: '\$1.0094',
       percentChange: '+0.03%',
-      color: Colors.green,
+      img: 'assets/usdt.png',
       isPositiveChange: true,
     ),
     TransactionItem(
@@ -55,7 +55,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       amount: '0',
       value: '\$2,567',
       percentChange: '-0.08%',
-      color: Colors.grey,
+      img: 'assets/eth.png',
       isPositiveChange: false,
     ),
     TransactionItem(
@@ -64,7 +64,7 @@ class RecentTransactionsWidget extends StatelessWidget {
       amount: '0.25',
       value: '\$7.86',
       percentChange: '+0.01%',
-      color: Colors.blue,
+      img: 'assets/ton.png',
       isPositiveChange: true,
     ),
     TransactionItem(
@@ -73,12 +73,12 @@ class RecentTransactionsWidget extends StatelessWidget {
       amount: '0.25',
       value: '\$0.53',
       percentChange: '+0.09%',
-      color: Colors.black,
+      img: 'assets/xrp.png',
       isPositiveChange: true,
     ),
   ];
 
-  RecentTransactionsWidget({Key? key}) : super(key: key);
+  RecentTransactionsWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -95,14 +95,19 @@ class RecentTransactionsWidget extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               TextButton(
                 onPressed: () {},
                 child: const Text(
                   'See more',
-                  style: TextStyle(fontSize: 14, color: Colors.blue),
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey,
+                    decoration: TextDecoration.underline,
+                    decorationColor: Colors.grey,
+                  ),
                 ),
               ),
             ],
@@ -133,20 +138,8 @@ class RecentTransactionsWidget extends StatelessWidget {
                     Container(
                       width: 36,
                       height: 36,
-                      decoration: BoxDecoration(
-                        color: transaction.color.withOpacity(0.2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Text(
-                          transaction.abbreviation.substring(0, 1),
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: transaction.color,
-                          ),
-                        ),
-                      ),
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: Image.asset(transaction.img),
                     ),
                     const SizedBox(width: 12),
 

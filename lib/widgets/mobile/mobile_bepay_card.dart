@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MobileBepayCard extends StatelessWidget {
-  const MobileBepayCard({Key? key}) : super(key: key);
+  const MobileBepayCard({super.key});
 
   @override
   Widget build(BuildContext context) {
